@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clientes</title>
+    <title>Fornecedores</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
@@ -16,39 +16,39 @@
                 <form action="" method="post">
 
                     <div class="mb-3">
-                        <label for="nome">
+                        <label for="razao_social">
                             <div class="mb-3">
-                                <label for="nome" class="form-label">Nome</label>
+                                <label for="razao_social" class="form-label">Razão Social</label>
                                 <input 
                                     required
                                     maxlength="50"
                                     minlength="3"
                                     type="text" 
                                     class="form-control" 
-                                    name="nome" 
-                                    id="nome" 
+                                    name="razao_social" 
+                                    id="razao_social" 
                                     aria-describedby="helpId"
-                                    placeholder="Fernando Carlos" />
-                                <small id="helpId" class="form-text text-muted">Digite seu Nome</small>
+                                    placeholder="Lojinha" />
+                                <small id="helpId" class="form-text text-muted">Digite a Razão Social</small>
                             </div>
                         </label>
                     </div>
-                    
+
                     <div class="mb-3">
-                        <label for="cpf">
+                        <label for="cnpj">
                             <div class="mb-3">
-                                <label for="cpf" class="form-label">CPF</label>
+                                <label for="cnpj" class="form-label">CNPJ</label>
                                 <input 
                                     required
-                                    maxlength="14"
-                                    minlength="14"
-                                    type="text" 
+                                    maxlength="18"
+                                    minlength="3"
+                                    type="date" 
                                     class="form-control" 
-                                    name="cpf" 
-                                    id="cpf" 
+                                    name="cnpj" 
+                                    id="cnpj" 
                                     aria-describedby="helpId"
-                                    placeholder="999.999.999" />
-                                <small id="helpId" class="form-text text-muted">Digite seu CPF</small>
+                                     />
+                                <small id="helpId" class="form-text text-muted">Digite o CNPJ</small>
                             </div>
                         </label>
                     </div>
@@ -56,7 +56,7 @@
                     <div class="mb-3">
                         <label for="endereco">
                             <div class="mb-3">
-                                <label for="endereco" class="form-label">Endereco</label>
+                                <label for="endereco" class="form-label">Endereço</label>
                                 <input 
                                     required
                                     maxlength="50"
@@ -66,8 +66,8 @@
                                     name="endereco" 
                                     id="endereco" 
                                     aria-describedby="helpId"
-                                    placeholder="Av Paulista" />
-                                <small id="helpId" class="form-text text-muted">Digite seu endereço</small>
+                                    placeholder="Av Ali Perto" />
+                                <small id="helpId" class="form-text text-muted">Digite o Endereço</small>
                             </div>
                         </label>
                     </div>
@@ -86,7 +86,7 @@
                                     id="bairro" 
                                     aria-describedby="helpId"
                                     placeholder="Limoeiro" />
-                                <small id="helpId" class="form-text text-muted">Digite seu bairro</small>
+                                <small id="helpId" class="form-text text-muted">Digite o Bairro</small>
                             </div>
                         </label>
                     </div>
@@ -104,8 +104,8 @@
                                     name="cidade" 
                                     id="cidade" 
                                     aria-describedby="helpId"
-                                    placeholder="São Paulo" />
-                                <small id="helpId" class="form-text text-muted">Digite sua cidade</small>
+                                    placeholder="Limoeiro" />
+                                <small id="helpId" class="form-text text-muted">Digite a cidade</small>
                             </div>
                         </label>
                     </div>
@@ -113,7 +113,7 @@
                     <div class="mb-3">
                         <label for="uf">
                             <div class="mb-3">
-                                <label for="uf" class="form-label">uf</label>
+                                <label for="uf" class="form-label">UF</label>
                                 <input 
                                     required
                                     maxlength="2"
@@ -183,6 +183,7 @@
                             </div>
                         </label>
                     </div>
+
 
                     <button
                         type="submit"

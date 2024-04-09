@@ -16,25 +16,63 @@
                 <form action="" method="post">
 
                     <div class="mb-3">
-                        <label for="nome">
+                        <label for="quantidade_compra">
                             <div class="mb-3">
-                                <label for="nome" class="form-label">nome</label>
+                                <label for="quantidade_compra" class="form-label">Quantidade da Compra</label>
+                                <input 
+                                    required
+                                    maxlength="5"
+                                    minlength="1"
+                                    type="number" 
+                                    class="form-control" 
+                                    name="quantidade_compra" 
+                                    id="quantidade_compra" 
+                                    aria-describedby="helpId"
+                                     />
+                                <small id="helpId" class="form-text text-muted">Digite a quantidade</small>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="data_compra">
+                            <div class="mb-3">
+                                <label for="data_compra" class="form-label">Data da Compra</label>
+                                <input 
+                                    required
+                                    maxlength="10"
+                                    minlength="10"
+                                    type="date" 
+                                    class="form-control" 
+                                    name="data_compra" 
+                                    id="data_compra" 
+                                    aria-describedby="helpId"
+                                     />
+                                <small id="helpId" class="form-text text-muted">Digite o dia da compra</small>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="valor_compra">
+                            <div class="mb-3">
+                                <label for="valor_compra" class="form-label">Valor da Compra</label>
                                 <input 
                                     required
                                     maxlength="50"
                                     minlength="3"
-                                    type="text" 
+                                    step="0.01"
+                                    type="number" 
                                     class="form-control" 
-                                    name="nome" 
-                                    id="nome" 
+                                    name="valor_compra" 
+                                    id="valor_compra" 
                                     aria-describedby="helpId"
-                                    placeholder="Fernando Carlos" />
-                                <small id="helpId" class="form-text text-muted">Digite seu Nome</small>
+                                     />
+                                <small id="helpId" class="form-text text-muted">Digite o valor pago</small>
                             </div>
                         </label>
                     </div>
-                    
-    
+
 
                     <button
                         type="submit"

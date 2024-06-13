@@ -135,7 +135,7 @@ public class FuncionarioDAO {
                     funcionarioObtido.setId(Integer.parseInt(resultado.getString("ID")));
                     funcionarioObtido.setNome(resultado.getString("NOME"));
                     funcionarioObtido.setCpf(resultado.getString("CPF"));
-                    funcionarioObtido.setSenha(resultado.getString("SENHA"));
+                    funcionarioObtido.setPapel(Integer.parseInt(resultado.getString("PAPEL")));
                 }
             }
             return funcionarioObtido;

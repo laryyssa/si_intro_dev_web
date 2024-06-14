@@ -23,11 +23,12 @@ public class FuncionarioDAO {
     public void Inserir(Funcionario funcionario) throws Exception {
         Conexao conexao = new Conexao();
         try {
-            PreparedStatement sql = conexao.getConexao().prepareStatement("INSERT INTO funcionarios (nome, cpf, senha)"
+            PreparedStatement sql = conexao.getConexao().prepareStatement("INSERT INTO funcionarios (nome, cpf, senha, papel)"
                     + " VALUES (?,?,?)");
             sql.setString(1, funcionario.getNome());
             sql.setString(2, funcionario.getCpf());
             sql.setString(3, funcionario.getSenha());
+            sql.setInt(4, funcionario.getPapel());
             sql.executeUpdate();
 
         } catch (SQLException e) {

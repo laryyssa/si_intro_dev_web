@@ -67,12 +67,14 @@ public class FuncionarioDAO {
     public void Alterar(Funcionario funcionario) {
         Conexao conexao = new Conexao();
         try {
-            PreparedStatement sql = conexao.getConexao().prepareStatement("UPDATE funcionarios SET nome = ?, cpf = ?, endereco = ?, senha = ?  WHERE ID = ? ");
-            sql.setString(1, funcionario.getNome());
-            sql.setString(2, funcionario.getCpf());
+            PreparedStatement sql = conexao.getConexao().prepareStatement("UPDATE funcionarios SET id =?, nome = ?, cpf = ?, senha = ?, papel = ?  WHERE ID = ? ");
+            sql.setInt(1, funcionario.getId());
+            sql.setString(2, funcionario.getNome());
+            sql.setString(3, funcionario.getCpf());
             sql.setString(4, funcionario.getSenha());
-            sql.setInt(5, funcionario.getId());
-            sql.setString(6, funcionario.getPapel());
+            sql.setString(5, funcionario.getPapel());
+            sql.setInt(6, funcionario.getId());
+            
             sql.executeUpdate();
 
         } catch (SQLException e) {

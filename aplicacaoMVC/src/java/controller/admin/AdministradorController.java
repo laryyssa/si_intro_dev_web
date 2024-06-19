@@ -93,7 +93,6 @@ public class AdministradorController extends HttpServlet {
                 case "Excluir":
                     try {
                         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-                        // Atualizando os dados do funcionário recuperado do banco
                         funcionario = funcionarioDAO.getFuncionario(id);
 
                     } catch (Exception ex) {
@@ -113,9 +112,12 @@ public class AdministradorController extends HttpServlet {
 
         } else {
 
+            funcionario.setId(id);
             funcionario.setNome(nome);
             funcionario.setSenha(senha);
             funcionario.setCpf(cpf);
+            
+            // !!!!!!!!!!!!!!!!!!!
             funcionario.setPapel("0");
            
 

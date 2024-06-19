@@ -103,6 +103,8 @@
 
                 <button
                     type="submit"
+                    name="btEnviar"
+                    value="<%=acao%>" 
                     class="btn btn-primary"
                     >
                     Enviar

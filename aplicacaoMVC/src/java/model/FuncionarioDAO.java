@@ -24,11 +24,12 @@ public class FuncionarioDAO {
         Conexao conexao = new Conexao();
         try {
             PreparedStatement sql = conexao.getConexao().prepareStatement("INSERT INTO funcionarios (nome, cpf, senha, papel)"
-                    + " VALUES (?,?,?)");
+                    + " VALUES (?,?,?,?)");
             sql.setString(1, funcionario.getNome());
             sql.setString(2, funcionario.getCpf());
             sql.setString(3, funcionario.getSenha());
             sql.setString(4, funcionario.getPapel());
+
             sql.executeUpdate();
 
         } catch (SQLException e) {

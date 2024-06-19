@@ -20,6 +20,7 @@
                     Funcionario funcionarioLogado = (Funcionario) session.getAttribute("funcionario");
                     out.println("<h3>Usuário logado com sucesso</h3>");
                     out.println("<h2>Nome: " + funcionarioLogado.getNome() + "</h2>");
+                    out.println("<h2>Papel: " + funcionarioLogado.getPapel() + "</h2>");
                 %>
 
 

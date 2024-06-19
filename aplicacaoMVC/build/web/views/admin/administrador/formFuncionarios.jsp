@@ -49,7 +49,7 @@
                                         maxlength="50"
                                         minlength="3"
                                         type="text" 
-                                        class="form-control" 
+                                        class="form-control"
                                         name="nome" 
                                         id="nome" 
                                         aria-describedby="helpId"
@@ -81,18 +81,20 @@
                             </label>
                         </div>         
 
-                        <div class="mb-3">
-                            <label for="papel" class="form-label">Papel Funcionário</label>
-                            <select name="papel" id="papel" class="form-control" <%= acao.equals("Excluir") ? "disabled" : ""%>>
-                                <option value="Administrador" <%=funcionario.getPapel() == 0 ? "selected" : ""%>>Administrador</option>
-                                <option value="Vendedor" <%=funcionario.getPapel() == 1 ? "selected" : ""%>>Vendedor</option>
-                                <option value="Comprador" <%=funcionario.getPapel() == 2 ? "selected" : ""%>>Comprador</option>
-                            </select>
-                        </div>
-
+                        <!--           
+                       <div class="mb-3">
+                           <label for="papel" class="form-label">Papel Funcionário</label>
+                           <select name="papel" id="papel" class="form-control" <%= acao.equals("Excluir") ? "disabled" : ""%>>
+                               <option value="Administrador" <%=funcionario.getPapel() == "0" ? "selected" : ""%>>Administrador</option>
+                               <option value="Vendedor" <%=funcionario.getPapel() == "1" ? "selected" : ""%>>Vendedor</option>
+                               <option value="Comprador" <%=funcionario.getPapel() == "2" ? "selected" : ""%>>Comprador</option>
+                           </select>
+                       </div>
+                        -->
 
                         </label>
                 </div>
+                <input type="hidden" name="papel" value="0" class="form-control">
 
                 <div class="mb-3">
                     <label for="senha" class="form-label" <%= acao.equals("Excluir") ? "Readonly" : ""%> value="<%=funcionario.getSenha()%>">Senha</label>

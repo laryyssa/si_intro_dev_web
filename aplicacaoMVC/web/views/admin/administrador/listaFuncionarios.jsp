@@ -41,16 +41,16 @@
                                     out.println("<th>" + funcionario.getId() + "</th>");
                                     out.println("<td>" + funcionario.getNome() + "</td>");
 
-                                    int papel = funcionario.getPapel();
+                                    String papel = funcionario.getPapel();
                                     String papel_str = "";
                                     switch (papel) {
-                                        case 0:
+                                        case "0":
                                             papel_str = "Administrador";
                                             break;
-                                        case 1:
+                                        case "1":
                                             papel_str = "Vendedor";
                                             break;
-                                        case 2:
+                                        case "2":
                                             papel_str = "Comprador";
                                             break;
                                     }

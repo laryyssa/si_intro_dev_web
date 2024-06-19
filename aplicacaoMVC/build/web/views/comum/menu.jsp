@@ -12,9 +12,11 @@
                     HttpSession sessao = request.getSession(false);
                     if (sessao != null) {
                         Funcionario funcionarioLogado = (Funcionario) session.getAttribute("funcionario");
-                        //int papelFuncionario = funcionarioLogado.getPapel();
+                        
                         if (funcionarioLogado != null) {
-                            if (funcionarioLogado.getPapel() == 0) { %>
+                            String papelFuncionario = funcionarioLogado.getPapel();
+                            
+                            if (papelFuncionario.equals("0")) { %>
                             <a class="nav-link" href="/aplicacaoMVC/admin/AdministradorController?acao=Listar">Administrador</a>
                             <%}%>
                             <a class="nav-link" href="/aplicacaoMVC/admin/dashboard/">Dashboard</a>

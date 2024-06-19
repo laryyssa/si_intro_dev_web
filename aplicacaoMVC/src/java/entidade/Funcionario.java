@@ -6,12 +6,13 @@ public class Funcionario {
     private String nome;
     private String cpf;
     private String senha;
-    private int papel;
+    private String papel;
 
-    public Funcionario(String nome, String cpf, String senha) {
+    public Funcionario(String nome, String cpf, String senha, String papel) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
+        this.papel = papel;
     }
 
     public Funcionario(String cpf, String senha) {
@@ -24,7 +25,7 @@ public class Funcionario {
         this.nome = "";
         this.cpf = "";
         this.senha = "";
-        this.papel = 0;
+        this.papel = "";
         
     }
 
@@ -61,11 +62,11 @@ public class Funcionario {
         
     }
     
-    public int getPapel() {
+    public String getPapel() {
         return papel;
     }
 
-    public void setPapel(int papel) {
+    public void setPapel(String papel) {
         this.papel = papel;
         
     }

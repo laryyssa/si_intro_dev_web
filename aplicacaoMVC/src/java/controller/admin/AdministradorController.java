@@ -78,74 +78,87 @@ public class AdministradorController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String nome = request.getParameter("nome");
         String senha = request.getParameter("senha");
-        String papel = request.getParameter("papel");
+        String papel = request.getParameter("papel");;
         String cpf = request.getParameter("cpf");
-
         String btEnviar = request.getParameter("btEnviar");
 
         RequestDispatcher rd;
 
-        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
         Funcionario funcionario = new Funcionario();
 
-        if (nome.isEmpty() || senha.isEmpty() || papel.isEmpty()) {
-            if (!btEnviar.equals("Incluir")) {
-                try {
-                    funcionario = funcionarioDAO.getFuncionario(id);
-                } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
-                    throw new RuntimeException("Falha em uma query para cadastro de usuario", ex);
-                }
+        if (nome.isEmpty() || senha.isEmpty() || papel.isEmpty() || cpf.isEmpty()) {
+
+            switch (btEnviar) {
+                case "Alterar":
+                case "Excluir":
+                    try {
+                        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+                        // Atualizando os dados do funcionário recuperado do banco
+                        funcionario = funcionarioDAO.getFuncionario(id);
+
+                    } catch (Exception ex) {
+                        System.out.println(ex.getMessage());
+                        throw new RuntimeException("Falha em uma query para cadastro de funcionario.", ex);
+                    }
+                    break;
             }
+
             request.setAttribute("funcionario", funcionario);
             request.setAttribute("acao", btEnviar);
+
             request.setAttribute("msgError", "É necessário preencher todos os campos");
+
             rd = request.getRequestDispatcher("/views/admin/administrador/formFuncionarios.jsp");
             rd.forward(request, response);
-            return; // Adicionado para evitar execução do restante do código
-        }
 
-        funcionario = new Funcionario(nome, cpf, senha);
+        } else {
 
-        switch (papel) {
-            case "Administrador":
-                funcionario.setPapel(0);
-                break;
-            case "Vendedor":
-                funcionario.setPapel(1);
-                break;
-            case "Comprador":
-                funcionario.setPapel(2);
-                break;
-            default:
-                throw new ServletException("Papel inválido: " + papel);
-        }
+            funcionario.setNome(nome);
+            funcionario.setSenha(senha);
+            funcionario.setCpf(cpf);
+            funcionario.setPapel("0");
+           
 
-        try {
-            switch (btEnviar) {
-                case "Incluir":
-                    funcionarioDAO.Inserir(funcionario);
-                    request.setAttribute("msgOperacaoRealizada", "Inclusão realizada com sucesso");
-                    break;
-                case "Alterar":
-                    funcionarioDAO.Alterar(funcionario);
-                    request.setAttribute("msgOperacaoRealizada", "Alteração realizada com sucesso");
-                    break;
-                case "Excluir":
-                    funcionarioDAO.Excluir(funcionario);
-                    request.setAttribute("msgOperacaoRealizada", "Exclusão realizada com sucesso");
-                    break;
-                default:
-                    throw new ServletException("Operação inválida: " + btEnviar);
+//            switch (papel) {
+//                case "Administrador":
+//                    funcionario.setPapel("0");
+//                    break;
+//                case "Vendedor":
+//                    funcionario.setPapel("1");
+//                    break;
+//                case "Comprador":
+//                    funcionario.setPapel("2");
+//                    break;
+//                default:
+//                    throw new ServletException("Papel inválido: " + papel);
+//            };
+
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+
+            try {
+                switch (btEnviar) {
+                    case "Incluir":
+                        funcionarioDAO.Inserir(funcionario);
+                        request.setAttribute("msgOperacaoRealizada", "Inclusão realizada com sucesso");
+                        break;
+                    case "Alterar":
+                        funcionarioDAO.Alterar(funcionario);
+                        request.setAttribute("msgOperacaoRealizada", "Alteração realizada com sucesso");
+                        break;
+                    case "Excluir":
+                        funcionarioDAO.Excluir(funcionario);
+                        request.setAttribute("msgOperacaoRealizada", "Exclusão realizada com sucesso");
+                        break;
+                }
+
+                request.setAttribute("link", "/aplicacaoMVC/admin/AdministradorController?acao=Listar");
+                rd = request.getRequestDispatcher("/views/comum/showMessage.jsp");
+                rd.forward(request, response);
+
+            } catch (Exception ex) {  
+                System.out.println(ex.getMessage());
+                throw new RuntimeException("Falha em uma query para cadastro de funcionario!", ex);
             }
-
-            request.setAttribute("link", "/admin/AdministradorController?acao=Listar");
-            rd = request.getRequestDispatcher("/views/comum/showMessage.jsp");
-            rd.forward(request, response);
-
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            throw new RuntimeException("Falha em uma query para cadastro de usuario", ex);
         }
     }
 }

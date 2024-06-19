@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `funcionarios` (
  */
 public class FuncionarioDAO {
 
-    public void Inserir(Funcionario funcionario) throws Exception {
+    public void Inserir(Funcionario funcionario){
         Conexao conexao = new Conexao();
         try {
             PreparedStatement sql = conexao.getConexao().prepareStatement("INSERT INTO funcionarios (nome, cpf, senha, papel)"
@@ -28,7 +28,7 @@ public class FuncionarioDAO {
             sql.setString(1, funcionario.getNome());
             sql.setString(2, funcionario.getCpf());
             sql.setString(3, funcionario.getSenha());
-            sql.setInt(4, funcionario.getPapel());
+            sql.setString(4, funcionario.getPapel());
             sql.executeUpdate();
 
         } catch (SQLException e) {
@@ -51,7 +51,7 @@ public class FuncionarioDAO {
                     funcionario.setNome(resultado.getString("NOME"));
                     funcionario.setCpf(resultado.getString("CPF"));
                     funcionario.setSenha(resultado.getString("SENHA"));
-                    funcionario.setPapel(Integer.parseInt(resultado.getString("PAPEL")));
+                    funcionario.setPapel(resultado.getString("PAPEL"));
                 }
             }
             return funcionario;
@@ -63,7 +63,7 @@ public class FuncionarioDAO {
         }
     }
 
-    public void Alterar(Funcionario funcionario) throws Exception {
+    public void Alterar(Funcionario funcionario) {
         Conexao conexao = new Conexao();
         try {
             PreparedStatement sql = conexao.getConexao().prepareStatement("UPDATE funcionarios SET nome = ?, cpf = ?, endereco = ?, senha = ?  WHERE ID = ? ");
@@ -71,7 +71,7 @@ public class FuncionarioDAO {
             sql.setString(2, funcionario.getCpf());
             sql.setString(4, funcionario.getSenha());
             sql.setInt(5, funcionario.getId());
-            sql.setInt(6, funcionario.getPapel());
+            sql.setString(6, funcionario.getPapel());
             sql.executeUpdate();
 
         } catch (SQLException e) {
@@ -108,10 +108,10 @@ public class FuncionarioDAO {
                     Funcionario funcionario = new Funcionario(
                             resultado.getString("NOME"),
                             resultado.getString("CPF"),
-                            resultado.getString("SENHA")
+                            resultado.getString("SENHA"),
+                            resultado.getString("PAPEL")
                     );
                     funcionario.setId(Integer.parseInt(resultado.getString("id")));
-                    funcionario.setPapel(Integer.parseInt(resultado.getString("papel")));
                     meusFuncionarios.add(funcionario);
                 }
             }
@@ -136,7 +136,7 @@ public class FuncionarioDAO {
                     funcionarioObtido.setId(Integer.parseInt(resultado.getString("ID")));
                     funcionarioObtido.setNome(resultado.getString("NOME"));
                     funcionarioObtido.setCpf(resultado.getString("CPF"));
-                    funcionarioObtido.setPapel(Integer.parseInt(resultado.getString("PAPEL")));
+                    funcionarioObtido.setPapel(resultado.getString("PAPEL"));
                 }
             }
             return funcionarioObtido;

@@ -11,13 +11,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Fornecedores</title>
+        <title>Produtos</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
 
     <body>
         <div class="container">
+            <jsp:include page="../../comum/menu.jsp" />
             <div class="col sm 6 mt 5">
+                
+                <h1>Área Restrita</h1>
+                <h2>Tabela Produtos</h2>
 
                 <div class="col-sm-6 mt-5">
                     <form action="" method="post">

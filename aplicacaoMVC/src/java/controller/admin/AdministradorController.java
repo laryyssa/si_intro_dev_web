@@ -78,7 +78,7 @@ public class AdministradorController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String nome = request.getParameter("nome");
         String senha = request.getParameter("senha");
-        String papel = request.getParameter("papel");;
+        String papel = request.getParameter("papel");
         String cpf = request.getParameter("cpf");
         String btEnviar = request.getParameter("btEnviar");
 
@@ -86,7 +86,7 @@ public class AdministradorController extends HttpServlet {
 
         Funcionario funcionario = new Funcionario();
 
-        if (nome.isEmpty() || senha.isEmpty() || papel.isEmpty() || cpf.isEmpty()) {
+        if (nome.isEmpty() || senha.isEmpty() ||  cpf.isEmpty()) {
 
             switch (btEnviar) {
                 case "Alterar":
@@ -116,24 +116,20 @@ public class AdministradorController extends HttpServlet {
             funcionario.setNome(nome);
             funcionario.setSenha(senha);
             funcionario.setCpf(cpf);
-            
-            // !!!!!!!!!!!!!!!!!!!
-            funcionario.setPapel("0");
            
-
-//            switch (papel) {
-//                case "Administrador":
-//                    funcionario.setPapel("0");
-//                    break;
-//                case "Vendedor":
-//                    funcionario.setPapel("1");
-//                    break;
-//                case "Comprador":
-//                    funcionario.setPapel("2");
-//                    break;
-//                default:
-//                    throw new ServletException("Papel inválido: " + papel);
-//            };
+            switch (papel) {
+                case "Administrador":
+                    funcionario.setPapel("0");
+                    break;
+                case "Vendedor":
+                    funcionario.setPapel("1");
+                    break;
+                case "Comprador":
+                    funcionario.setPapel("2");
+                    break;
+                default:
+                    throw new ServletException("Papel inválido: " + papel);
+            }
 
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 

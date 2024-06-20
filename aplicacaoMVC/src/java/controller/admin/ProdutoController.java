@@ -35,37 +35,35 @@ public class ProdutoController extends HttpServlet {
                 rd.forward(request, response);
                 break;
 
+            case "Alterar":
+            case "Excluir":
+                // get parametro ação indicando sobre qual categoria será a ação
+                int id = Integer.parseInt(request.getParameter("id"));
+                 {
+                    try {
+                        produto = produtoDAO.get(id);
+                    } catch (Exception ex) {
+                        Logger.getLogger(AdministradorController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+
+                request.setAttribute("produto", produto);
+                request.setAttribute("msgError", "");
+                request.setAttribute("acao", acao);
+
+                rd = request.getRequestDispatcher("/views/admin/produto/tabela_produtos.jsp");
+                rd.forward(request, response);
+                break;
+
+            case "Incluir":
+                request.setAttribute("produto", produto);
+                request.setAttribute("msgError", "");
+                request.setAttribute("acao", acao);
+
+                rd = request.getRequestDispatcher("/views/admin/produto/tabela_produtos.jsp");
+                rd.forward(request, response);
+
         }
-//            case "Alterar":
-//            case "Excluir":
-//
-//                // get parametro ação indicando sobre qual categoria será a ação
-//                int id = Integer.parseInt(request.getParameter("id"));
-//                 {
-//                    try {
-//                        funcionario = funcionarioDAO.getFuncionario(id);
-//                    } catch (Exception ex) {
-//                        Logger.getLogger(AdministradorController.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//                }
-//
-//                request.setAttribute("funcionario", funcionario);
-//                request.setAttribute("msgError", "");
-//                request.setAttribute("acao", acao);
-//
-//                rd = request.getRequestDispatcher("/views/admin/administrador/formFuncionarios.jsp");
-//                rd.forward(request, response);
-//                break;
-//
-//            case "Incluir":
-//                request.setAttribute("funcionario", funcionario);
-//                request.setAttribute("msgError", "");
-//                request.setAttribute("acao", acao);
-//
-//                rd = request.getRequestDispatcher("/views/admin/administrador/formFuncionarios.jsp");
-//                rd.forward(request, response);
-//
-//        }
 
     }
 

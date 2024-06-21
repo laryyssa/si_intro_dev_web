@@ -5,12 +5,9 @@
         <group>
             <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/controller/admin/ProdutoController.java</file>
             <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/web/views/admin/produto/tabela_produtos.jsp</file>
-            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/web/views/comum/menu.jsp</file>
-            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/controller/admin/AdministradorController.java</file>
-            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/web/views/admin/produto/lista_produto.jsp</file>
+            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/web/views/admin/administrador/formFuncionarios.jsp</file>
             <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/entidade/Produto.java</file>
             <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/model/ProdutoDAO.java</file>
-            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/web/views/admin/categoria/listaCategorias.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -43,7 +43,7 @@ public class ProdutoDAO implements Dao<Produto> {
         Conexao conexao = new Conexao();
         try {
             // Prepare SQL query with all the fields of Produto
-            String query = "INSERT INTO produtos (nome_produto, descricao, preco_compra, preco_venda, quantidade_disponivel, liberado_venda, id_categoria) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO produtos (nome_produto, descricao, preco_compra, preco_venda, quantidade_disponível, liberado_venda, id_categoria) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement sql = conexao.getConexao().prepareStatement(query);
 
             // Set the parameters for the query

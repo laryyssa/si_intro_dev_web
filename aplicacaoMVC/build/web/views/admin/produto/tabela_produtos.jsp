@@ -44,6 +44,8 @@
                 <div class="col-sm-6 mt-5">
                     <form action="/aplicacaoMVC/admin/ProdutoController?acao=Incluir" method="post">
 
+                        <input type="hidden" name="id" value="<%=produto.getId()%>" class="form-control">
+
                         <div class="mb-3">
                             <label for="nome_produto">
                                 <div class="mb-3">
@@ -61,7 +63,7 @@
                                         <%= acao.equals("Excluir") ? "Readonly" : ""%>
                                         value="<%=produto.getNome_produto()%>"
                                         />
-                                        <small id="helpId" class="form-text text-muted">Digite a Nome Produto</small>
+                                    <small id="helpId" class="form-text text-muted">Digite a Nome Produto</small>
                                 </div>
                             </label>
                         </div>
@@ -82,11 +84,32 @@
                                         <%= acao.equals("Excluir") ? "Readonly" : ""%>
                                         value="<%=produto.getDescricao()%>"
                                         />
-                                        <small id="helpId" class="form-text text-muted">Digite a Descricao</small>
+                                    <small id="helpId" class="form-text text-muted">Digite a Descricao</small>
                                 </div>
                             </label>
                         </div>
-
+                                        
+                        <div class="mb-3">
+                            <label for="preco_compra">
+                                <div class="mb-3">
+                                    <label for="preco_venda" class="form-label">Preco da Venda</label>
+                                    <input 
+                                        required
+                                        maxlength="50"
+                                        minlength="3"
+                                        step="0.01"
+                                        type="number" 
+                                        class="form-control" 
+                                        name="preco_compra" 
+                                        id="preco_compra" 
+                                        aria-describedby="helpId"
+                                        <%= acao.equals("Excluir") ? "Readonly" : ""%>
+                                        value="<%=produto.getPreco_compra()%>"
+                                        />
+                                    <small id="helpId" class="form-text text-muted">Digite o preço da compra</small>
+                                </div>
+                            </label>
+                        </div>
 
                         <div class="mb-3">
                             <label for="preco_venda">
@@ -121,13 +144,13 @@
                                         minlength="1"
                                         type="number" 
                                         class="form-control" 
-                                        name="quantidade_compra" 
-                                        id="quantidade_compra" 
+                                        name="quantidade_disponivel" 
+                                        id="quantidade_disponivel" 
                                         aria-describedby="helpId"
                                         <%= acao.equals("Excluir") ? "Readonly" : ""%>
                                         value="<%=produto.getQuantidade_disponivel()%>"
                                         />
-                                        <small id="helpId" class="form-text text-muted">Digite a Quantidade Disponível</small>
+                                    <small id="helpId" class="form-text text-muted">Digite a Quantidade Disponível</small>
                                 </div>
                             </label>
                         </div>  
@@ -148,14 +171,36 @@
                                         <%= acao.equals("Excluir") ? "Readonly" : ""%>
                                         value="<%=produto.getLiberado_venda()%>"
                                         />
-                                        <small id="helpId" class="form-text text-muted">Digite a liberação da Venda</small>
+                                    <small id="helpId" class="form-text text-muted">Digite a liberação da Venda</small>
                                 </div>
                             </label>
                         </div>
+                                        
+                        <div class="mb-3">
+                            <label for="id_categoria">
+                                <div class="mb-3">
+                                    <label for="id_categoria" class="form-label">Id Categoria</label>
+                                    <input 
+                                        required
+                                        maxlength="5"
+                                        minlength="1"
+                                        type="number" 
+                                        class="form-control" 
+                                        name="id_categoria" 
+                                        id="id_categoria" 
+                                        aria-describedby="helpId"
+                                        <%= acao.equals("Excluir") ? "Readonly" : ""%>
+                                        value="<%=produto.getId_categoria()%>"
+                                        />
+                                    <small id="helpId" class="form-text text-muted">Digite o Id Categoria</small>
+                                </div>
+                            </label>
+                        </div>  
 
                         <button
                             type="submit"
                             class="btn btn-primary"
+                            name="btEnviar"
                             value="<%=acao%>"
                             >
                             Enviar

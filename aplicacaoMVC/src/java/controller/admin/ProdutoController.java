@@ -67,92 +67,87 @@ public class ProdutoController extends HttpServlet {
 
     }
 
-//    @Override
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//
-//        int id = Integer.parseInt(request.getParameter("id"));
-//        String nome = request.getParameter("nome");
-//        String senha = request.getParameter("senha");
-//        String papel = request.getParameter("papel");
-//        String cpf = request.getParameter("cpf");
-//        String btEnviar = request.getParameter("btEnviar");
-//
-//        RequestDispatcher rd;
-//
-//        Funcionario funcionario = new Funcionario();
-//
-//        if (nome.isEmpty() || senha.isEmpty() ||  cpf.isEmpty()) {
-//
-//            switch (btEnviar) {
-//                case "Alterar":
-//                case "Excluir":
-//                    try {
-//                        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-//                        funcionario = funcionarioDAO.getFuncionario(id);
-//
-//                    } catch (Exception ex) {
-//                        System.out.println(ex.getMessage());
-//                        throw new RuntimeException("Falha em uma query para cadastro de funcionario.", ex);
-//                    }
-//                    break;
-//            }
-//
-//            request.setAttribute("funcionario", funcionario);
-//            request.setAttribute("acao", btEnviar);
-//
-//            request.setAttribute("msgError", "É necessário preencher todos os campos");
-//
-//            rd = request.getRequestDispatcher("/views/admin/administrador/formFuncionarios.jsp");
-//            rd.forward(request, response);
-//
-//        } else {
-//
-//            funcionario.setId(id);
-//            funcionario.setNome(nome);
-//            funcionario.setSenha(senha);
-//            funcionario.setCpf(cpf);
-//           
-//            switch (papel) {
-//                case "Administrador":
-//                    funcionario.setPapel("0");
-//                    break;
-//                case "Vendedor":
-//                    funcionario.setPapel("1");
-//                    break;
-//                case "Comprador":
-//                    funcionario.setPapel("2");
-//                    break;
-//                default:
-//                    throw new ServletException("Papel inválido: " + papel);
-//            }
-//
-//            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-//
-//            try {
-//                switch (btEnviar) {
-//                    case "Incluir":
-//                        funcionarioDAO.Inserir(funcionario);
-//                        request.setAttribute("msgOperacaoRealizada", "Inclusão realizada com sucesso");
-//                        break;
-//                    case "Alterar":
-//                        funcionarioDAO.Alterar(funcionario);
-//                        request.setAttribute("msgOperacaoRealizada", "Alteração realizada com sucesso");
-//                        break;
-//                    case "Excluir":
-//                        funcionarioDAO.Excluir(funcionario);
-//                        request.setAttribute("msgOperacaoRealizada", "Exclusão realizada com sucesso");
-//                        break;
-//                }
-//
-//                request.setAttribute("link", "/aplicacaoMVC/admin/AdministradorController?acao=Listar");
-//                rd = request.getRequestDispatcher("/views/comum/showMessage.jsp");
-//                rd.forward(request, response);
-//
-//            } catch (Exception ex) {  
-//                System.out.println(ex.getMessage());
-//                throw new RuntimeException("Falha em uma query para cadastro de funcionario!", ex);
-//            }
-//        }
-//    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        String nome_produto = request.getParameter("nome_produto");
+        String descricao = request.getParameter("descricao");
+        double preco_compra = Double.parseDouble(request.getParameter("preco_compra"));
+        double preco_venda = Double.parseDouble(request.getParameter("preco_venda"));
+        int quantidade_disponivel = Integer.parseInt(request.getParameter("quantidade_disponivel"));
+        String liberado_venda = request.getParameter("liberado_venda");
+        int id_categoria = Integer.parseInt(request.getParameter("id_categoria"));
+
+        String btEnviar = request.getParameter("btEnviar");
+
+        RequestDispatcher rd;
+
+        Produto produto = new Produto();
+
+        if (nome_produto.isEmpty() || descricao.isEmpty() || preco_compra == 0 || preco_venda == 0 || quantidade_disponivel == 0 || liberado_venda.isEmpty() || id_categoria == 0) {
+
+            switch (btEnviar) {
+                case "Alterar":
+                case "Excluir":
+                    try {
+                        ProdutoDAO produtoDAO = new ProdutoDAO();
+                        produto = produtoDAO.get(id);
+
+                    } catch (Exception ex) {
+                        System.out.println(ex.getMessage());
+                        throw new RuntimeException("Falha em uma query para cadastro de funcionario.", ex);
+                    }
+                    break;
+            }
+
+            request.setAttribute("produto", produto);
+            request.setAttribute("acao", btEnviar);
+
+            request.setAttribute("msgError", "É necessário preencher todos os campos");
+
+            rd = request.getRequestDispatcher("/views/admin/produto/tabela_produtos.jsp");
+            rd.forward(request, response);
+
+        } else {
+
+            produto.setId(id);
+            produto.setNome_produto(nome_produto);
+            produto.setDescricao(descricao);
+            produto.setPreco_compra(preco_compra);
+            produto.setPreco_venda(preco_venda);
+            produto.setQuantidade_disponivel(quantidade_disponivel);
+            produto.setLiberado_venda(liberado_venda);
+            produto.setId_categoria(id_categoria);
+
+
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+
+            try {
+                switch (btEnviar) {
+                    case "Incluir":
+                        produtoDAO.insert(produto);
+                        request.setAttribute("msgOperacaoRealizada", "Inclusão realizada com sucesso");
+                        break;
+                    case "Alterar":
+                        produtoDAO.update(produto);
+                        request.setAttribute("msgOperacaoRealizada", "Alteração realizada com sucesso");
+                        break;
+                    case "Excluir":
+                        produtoDAO.delete(produto.getId());
+                        request.setAttribute("msgOperacaoRealizada", "Exclusão realizada com sucesso");
+                        break;
+                }
+
+                request.setAttribute("link", "/aplicacaoMVC/admin/ProdutoController?acao=Listar");
+                rd = request.getRequestDispatcher("/views/comum/showMessage.jsp");
+                rd.forward(request, response);
+
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+                throw new RuntimeException("Falha em uma query para cadastro de funcionario!", ex);
+            }
+        }
+    }
 }

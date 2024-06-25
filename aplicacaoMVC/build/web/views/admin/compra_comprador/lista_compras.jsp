@@ -19,7 +19,7 @@
             <div class="mt-5">
 
                 <h1>Área Restrita</h1>
-                <h2>Lista de Categorias</h2>
+                <h2>Lista de Compras</h2>
 
                 <a href="/aplicacaoMVC/admin/CadastraCompraController?acao=Incluir" class="mb-2 btn btn-primary">Incluir</a>
                 <div class="table-responsive">

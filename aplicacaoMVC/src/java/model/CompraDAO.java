@@ -85,6 +85,8 @@ public class CompraDAO implements Dao<Compra> {
             sql.setInt(5, compra.getIdProduto());
             sql.setInt(6, compra.getIdFuncionario());
             sql.setInt(7, compra.getId());
+            
+            sql.executeUpdate();
 
         } catch (SQLException e) {
             System.err.println("Query de update (alterar compra) incorreta");

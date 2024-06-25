@@ -8,17 +8,17 @@ public class Compra {
     private double valorCompra;
     private int idFornecedor;
     private int idProduto;
-    private int idComprador;
+    private int idFuncionario;
 
     // Construtor vazio
-    public Compra(int id, int quantidadeCompra, String dataCompra, double valorCompra, int idFornecedor, int idProduto, int idComprador) {
+    public Compra(int id, int quantidadeCompra, String dataCompra, double valorCompra, int idFornecedor, int idProduto, int idFuncionario) {
         this.id = id;
         this.quantidadeCompra = quantidadeCompra;
         this.dataCompra = dataCompra;
         this.valorCompra = valorCompra;
         this.idFornecedor = idFornecedor;
         this.idProduto = idProduto;
-        this.idComprador = idComprador;
+        this.idFuncionario = idFuncionario;
     }
     
     public Compra() {
@@ -74,11 +74,11 @@ public class Compra {
         this.idProduto = idProduto;
     }
 
-    public int getIdComprador() {
-        return idComprador;
+    public int getIdFuncionario() {
+        return idFuncionario;
     }
 
-    public void setIdComprador(int idComprador) {
-        this.idComprador = idComprador;
+    public void setIdFuncionario(int idComprador) {
+        this.idFuncionario = idComprador;
     }
 }

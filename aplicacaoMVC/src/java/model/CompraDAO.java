@@ -38,7 +38,7 @@ public class CompraDAO implements Dao<Compra> {
                     compra.setValorCompra(Double.parseDouble(resultado.getString("valor_compra")));
                     compra.setIdFornecedor(Integer.parseInt(resultado.getString("id_fornecedor")));
                     compra.setIdProduto(Integer.parseInt(resultado.getString("id_produto")));
-                    compra.setIdComprador(Integer.parseInt(resultado.getString("id_comprador")));
+                    compra.setIdFuncionario(Integer.parseInt(resultado.getString("id_funcionario")));
                 }
             }
         } catch (SQLException e) {
@@ -54,14 +54,14 @@ public class CompraDAO implements Dao<Compra> {
 
         Conexao conexao = new Conexao();
         try {
-            PreparedStatement sql = conexao.getConexao().prepareStatement("INSERT INTO compras (quantidade_compra, data_compra, valor_compra, id_fornecedor, id_produto, id_comprador) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement sql = conexao.getConexao().prepareStatement("INSERT INTO compras (quantidade_compra, data_compra, valor_compra, id_fornecedor, id_produto, id_funcionario) VALUES (?, ?, ?, ?, ?, ?)");
 
             sql.setInt(1, compra.getQuantidadeCompra());
             sql.setString(2, compra.getDataCompra());
             sql.setDouble(3, compra.getValorCompra());
             sql.setInt(4, compra.getIdFornecedor());
             sql.setInt(5, compra.getIdProduto());
-            sql.setInt(6, compra.getIdComprador());
+            sql.setInt(6, compra.getIdFuncionario());
 
             sql.executeUpdate();
 
@@ -76,14 +76,14 @@ public class CompraDAO implements Dao<Compra> {
     public void update(Compra compra) {
         Conexao conexao = new Conexao();
         try {
-            PreparedStatement sql = conexao.getConexao().prepareStatement("UPDATE compras SET quantidade_compra = ?, data_compra = ?, valor_compra = ?, id_fornecedor = ?, id_produto = ?, id_comprador = ? WHERE ID = ?");
+            PreparedStatement sql = conexao.getConexao().prepareStatement("UPDATE compras SET quantidade_compra = ?, data_compra = ?, valor_compra = ?, id_fornecedor = ?, id_produto = ?, id_funcionario = ? WHERE ID = ?");
 
             sql.setInt(1, compra.getQuantidadeCompra());
             sql.setString(2, compra.getDataCompra());
             sql.setDouble(3, compra.getValorCompra());
             sql.setInt(4, compra.getIdFornecedor());
             sql.setInt(5, compra.getIdProduto());
-            sql.setInt(6, compra.getIdComprador());
+            sql.setInt(6, compra.getIdFuncionario());
             sql.setInt(7, compra.getId());
 
         } catch (SQLException e) {
@@ -126,9 +126,9 @@ public class CompraDAO implements Dao<Compra> {
                     double valorCompra = resultado.getDouble("valor_compra");
                     int idFornecedor = resultado.getInt("id_fornecedor");
                     int idProduto = resultado.getInt("id_produto");
-                    int idComprador = resultado.getInt("id_comprador");
+                    int idFuncionario = resultado.getInt("id_funcionario");
 
-                    Compra compra = new Compra(id, quantidadeCompra, dataCompra, valorCompra, idFornecedor, idProduto, idComprador);
+                    Compra compra = new Compra(id, quantidadeCompra, dataCompra, valorCompra, idFornecedor, idProduto, idFuncionario);
                     minhasCompras.add(compra);
                 }
             }

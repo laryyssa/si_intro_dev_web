@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import entidade.Produto;
 
-
 public class ProdutoDAO implements Dao<Produto> {
 
     @Override
@@ -113,6 +112,39 @@ public class ProdutoDAO implements Dao<Produto> {
         Conexao conexao = new Conexao();
         try {
             String selectSQL = "SELECT * FROM produtos";
+            PreparedStatement preparedStatement;
+            preparedStatement = conexao.getConexao().prepareStatement(selectSQL);
+            ResultSet resultado = preparedStatement.executeQuery();
+            if (resultado != null) {
+                while (resultado.next()) {
+                    Produto produto = new Produto(
+                            resultado.getInt("id"),
+                            resultado.getString("nome_produto"),
+                            resultado.getString("descricao"),
+                            resultado.getDouble("preco_compra"),
+                            resultado.getDouble("preco_venda"),
+                            resultado.getInt("quantidade_disponível"),
+                            resultado.getString("liberado_venda"),
+                            resultado.getInt("id_categoria")
+                    );
+                    meusProdutos.add(produto);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Query de select (GetAll - produtos) incorreta");
+        } finally {
+            conexao.closeConexao();
+        }
+        return meusProdutos;
+    }
+
+//    @Override
+    public ArrayList<Produto> getProdutosDisponiveis() {
+
+        ArrayList<Produto> meusProdutos = new ArrayList();
+        Conexao conexao = new Conexao();
+        try {
+            String selectSQL = "SELECT * FROM produtos WHERE quantidade_disponível > 0 AND liberado_venda = 'S'";
             PreparedStatement preparedStatement;
             preparedStatement = conexao.getConexao().prepareStatement(selectSQL);
             ResultSet resultado = preparedStatement.executeQuery();

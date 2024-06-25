@@ -18,6 +18,8 @@
                             
                             if (papelFuncionario.equals("0")) { %>
                             <a class="nav-link" href="/aplicacaoMVC/admin/AdministradorController?acao=Listar">Administrador</a>
+                            <%} else if (papelFuncionario.equals("2")) {%>
+                            <a class="nav-link" href="/aplicacaoMVC/admin/CadastraCompraController?acao=Listar">Cadastrar Compra</a>
                             <%} else {%>
                             <a class="nav-link" href="/aplicacaoMVC/admin/ProdutoController?acao=Listar">Produto</a>
                             <%  } %>

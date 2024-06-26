@@ -20,6 +20,8 @@
                             <a class="nav-link" href="/aplicacaoMVC/admin/AdministradorController?acao=Listar">Administrador</a>
                             <%} else if (papelFuncionario.equals("2")) {%>
                             <a class="nav-link" href="/aplicacaoMVC/admin/CadastraCompraController?acao=Listar">Cadastrar Compra</a>
+                            <%} else if (papelFuncionario.equals("1")) {%>
+                            <a class="nav-link" href="/aplicacaoMVC/admin/VendaController?acao=Listar">Cadastrar Venda</a>
                             <%} else {%>
                             <a class="nav-link" href="/aplicacaoMVC/admin/ProdutoController?acao=Listar">Produto</a>
                             <%  } %>

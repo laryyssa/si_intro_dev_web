@@ -5,14 +5,14 @@ import java.util.Date;
 public class Venda {
     private int id;
     private int quantidadeVenda;
-    private Date dataVenda;
+    private String dataVenda;
     private double valorVenda;
     private int idCliente;
     private int idProduto;
     private int idFuncionario;
 
     // Construtor
-    public Venda(int id, int quantidadeVenda, Date dataVenda, double valorVenda, int idCliente, int idProduto, int idFuncionario) {
+    public Venda(int id, int quantidadeVenda, String dataVenda, double valorVenda, int idCliente, int idProduto, int idFuncionario) {
         this.id = id;
         this.quantidadeVenda = quantidadeVenda;
         this.dataVenda = dataVenda;
@@ -43,11 +43,11 @@ public class Venda {
         this.quantidadeVenda = quantidadeVenda;
     }
 
-    public Date getDataVenda() {
+    public String getDataVenda() {
         return dataVenda;
     }
 
-    public void setDataVenda(Date dataVenda) {
+    public void setDataVenda(String dataVenda) {
         this.dataVenda = dataVenda;
     }
 

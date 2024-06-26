@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import entidade.Venda;
 
 public class VendaDAO implements Dao<Venda> {
@@ -22,7 +21,7 @@ public class VendaDAO implements Dao<Venda> {
                 while (resultado.next()) {
                     venda.setId(resultado.getInt("id"));
                     venda.setQuantidadeVenda(resultado.getInt("quantidade_venda"));
-                    venda.setDataVenda(resultado.getDate("data_venda"));
+                    venda.setDataVenda(resultado.getString("data_venda"));
                     venda.setValorVenda(resultado.getDouble("valor_venda"));
                     venda.setIdCliente(resultado.getInt("id_cliente"));
                     venda.setIdProduto(resultado.getInt("id_produto"));
@@ -44,7 +43,7 @@ public class VendaDAO implements Dao<Venda> {
             PreparedStatement sql = conexao.getConexao().prepareStatement("INSERT INTO vendas (quantidade_venda, data_venda, valor_venda, id_cliente, id_produto, id_vendedor) VALUES (?, ?, ?, ?, ?, ?)");
 
             sql.setInt(1, venda.getQuantidadeVenda());
-            sql.setDate(2, new java.sql.Date(venda.getDataVenda().getTime()));
+            sql.setString(2, venda.getDataVenda());
             sql.setDouble(3, venda.getValorVenda());
             sql.setInt(4, venda.getIdCliente());
             sql.setInt(5, venda.getIdProduto());
@@ -66,7 +65,7 @@ public class VendaDAO implements Dao<Venda> {
             PreparedStatement sql = conexao.getConexao().prepareStatement("UPDATE vendas SET quantidade_venda = ?, data_venda = ?, valor_venda = ?, id_cliente = ?, id_produto = ?, id_vendedor = ? WHERE id = ?");
 
             sql.setInt(1, venda.getQuantidadeVenda());
-            sql.setDate(2, new java.sql.Date(venda.getDataVenda().getTime()));
+            sql.setString(2, venda.getDataVenda());
             sql.setDouble(3, venda.getValorVenda());
             sql.setInt(4, venda.getIdCliente());
             sql.setInt(5, venda.getIdProduto());
@@ -108,7 +107,7 @@ public class VendaDAO implements Dao<Venda> {
             while (resultado.next()) {
                 int id = resultado.getInt("id");
                 int quantidadeVenda = resultado.getInt("quantidade_venda");
-                Date dataVenda = resultado.getDate("data_venda");
+                String dataVenda = resultado.getString("data_venda");
                 double valorVenda = resultado.getDouble("valor_venda");
                 int idCliente = resultado.getInt("id_cliente");
                 int idProduto = resultado.getInt("id_produto");

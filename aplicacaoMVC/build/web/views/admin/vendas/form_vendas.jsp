@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="dataCompra" class="form-label">Data da Compra</label>
+                            <label for="dataVenda" class="form-label">Data da Venda</label>
                             <input type="text" name="dataCompra" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= compra.getDataCompra()%>" class="form-control">
                         </div>
 

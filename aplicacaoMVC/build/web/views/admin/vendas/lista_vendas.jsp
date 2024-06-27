@@ -21,7 +21,7 @@
                 <h1>Área Restrita</h1>
                 <h2>Lista de Vendas</h2>
 
-                <a href="/aplicacaoMVC/admin/CadastraCompraController?acao=Incluir" class="mb-2 btn btn-primary">Incluir</a>
+                <a href="/aplicacaoMVC/admin/VendaController?acao=Incluir" class="mb-2 btn btn-primary">Incluir</a>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>

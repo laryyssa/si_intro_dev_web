@@ -40,7 +40,7 @@ public class VendaDAO implements Dao<Venda> {
     public void insert(Venda venda) {
         Conexao conexao = new Conexao();
         try {
-            PreparedStatement sql = conexao.getConexao().prepareStatement("INSERT INTO vendas (quantidade_venda, data_venda, valor_venda, id_cliente, id_produto, id_vendedor) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement sql = conexao.getConexao().prepareStatement("INSERT INTO vendas (quantidade_venda, data_venda, valor_venda, id_cliente, id_produto, id_funcionario) VALUES (?, ?, ?, ?, ?, ?)");
 
             sql.setInt(1, venda.getQuantidadeVenda());
             sql.setString(2, venda.getDataVenda());
@@ -52,7 +52,7 @@ public class VendaDAO implements Dao<Venda> {
             sql.executeUpdate();
 
         } catch (SQLException e) {
-            System.err.println("Erro ao executar query de insert (venda): " + e.getMessage());
+            System.err.println("Erro ao executar query de update (venda): " + e.getMessage());
         } finally {
             conexao.closeConexao();
         }
@@ -62,7 +62,7 @@ public class VendaDAO implements Dao<Venda> {
     public void update(Venda venda) {
         Conexao conexao = new Conexao();
         try {
-            PreparedStatement sql = conexao.getConexao().prepareStatement("UPDATE vendas SET quantidade_venda = ?, data_venda = ?, valor_venda = ?, id_cliente = ?, id_produto = ?, id_vendedor = ? WHERE id = ?");
+            PreparedStatement sql = conexao.getConexao().prepareStatement("UPDATE vendas SET quantidade_venda = ?, data_venda = ?, valor_venda = ?, id_cliente = ?, id_produto = ?, id_funcionario = ? WHERE id = ?");
 
             sql.setInt(1, venda.getQuantidadeVenda());
             sql.setString(2, venda.getDataVenda());

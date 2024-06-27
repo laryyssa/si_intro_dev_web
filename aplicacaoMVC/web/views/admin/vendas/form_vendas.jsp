@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="entidade.Compra"%>
+<%@page import="entidade.Venda"%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,7 +10,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="#">
-        <title>Comentário</title>
+        <title>Venda</title>
         <link href="http://localhost:8080/aplicacaoMVC/views/bootstrap/bootstrap.min.css"  rel="stylesheet">
     </head>
 
@@ -21,17 +21,17 @@
             <div class="row mt-5">
                 <div class="col-sm-4 offset-3">
                     <%
-                        Compra compra = (Compra) request.getAttribute("compra");
+                        Venda venda = (Venda) request.getAttribute("venda");
                         String acao = (String) request.getAttribute("acao");
                         switch (acao) {
                             case "Incluir":
-                                out.println("<h1>Incluir Compra</h1>");
+                                out.println("<h1>Incluir Venda</h1>");
                                 break;
                             case "Alterar":
-                                out.println("<h1>Alterar Compra</h1>");
+                                out.println("<h1>Alterar Venda</h1>");
                                 break;
                             case "Excluir":
-                                out.println("<h1>Excluir Compra</h1>");
+                                out.println("<h1>Excluir Venda</h1>");
                                 break;
                         }
 
@@ -44,42 +44,42 @@
 
             
 
-                    <form action="/aplicacaoMVC/admin/CadastraCompraController" method="POST">
-                        <input type="hidden" name="id" value="<%= compra.getId()%>" class="form-control">
+                    <form action="/aplicacaoMVC/admin/VendaController" method="POST">
+                        <input type="hidden" name="id" value="<%= venda.getId()%>" class="form-control">
 
                         <div class="mb-3">
-                            <label for="quantidadeCompra" class="form-label">Quantidade de Compra</label>
-                            <input type="text" name="quantidadeCompra" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= compra.getQuantidadeCompra()%>" class="form-control">
+                            <label for="quantidadeVenda" class="form-label">Quantidade de Venda</label>
+                            <input type="text" name="quantidadeVenda" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= venda.getQuantidadeVenda()%>" class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label for="dataVenda" class="form-label">Data da Venda</label>
-                            <input type="text" name="dataCompra" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= compra.getDataCompra()%>" class="form-control">
+                            <input type="text" name="dataVenda" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= venda.getDataVenda()%>" class="form-control">
                         </div>
 
                         <div class="mb-3">
-                            <label for="valorCompra" class="form-label">Valor da Compra</label>
-                            <input type="text" name="valorCompra" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= compra.getValorCompra()%>" class="form-control">
+                            <label for="valorVenda" class="form-label">Valor da Venda</label>
+                            <input type="text" name="valorVenda" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= venda.getValorVenda()%>" class="form-control">
                         </div>
 
                         <div class="mb-3">
-                            <label for="idFornecedor" class="form-label">ID do Fornecedor</label>
-                            <input type="text" name="idFornecedor" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= compra.getIdFornecedor()%>" class="form-control">
+                            <label for="idCliente" class="form-label">ID do Cliente</label>
+                            <input type="text" name="idCliente" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= venda.getIdFuncionario()%>" class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label for="idProduto" class="form-label">ID do Produto</label>
-                            <input type="text" name="idProduto" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= compra.getIdProduto()%>" class="form-control">
+                            <input type="text" name="idProduto" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= venda.getIdProduto()%>" class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label for="idFuncionario" class="form-label">ID do Funcionário</label>
-                            <input type="text" name="idFuncionario" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= compra.getIdFuncionario()%>" class="form-control">
+                            <input type="text" name="idFuncionario" <%= acao.equals("Excluir") ? "readonly" : ""%> value="<%= venda.getIdFuncionario()%>" class="form-control">
                         </div>
 
                         <div>
                             <input type="submit" name="btEnviar" value="<%= acao%>" class="btn btn-primary">
-                            <a href="/aplicacaoMVC/admin/CompraController?acao=Listar" class="btn btn-danger">Retornar</a>
+                            <a href="/aplicacaoMVC/admin/VendaController?acao=Listar" class="btn btn-danger">Retornar</a>
                         </div>
                     </form>
 

@@ -116,7 +116,7 @@ public class VendaController extends HttpServlet {
                         break;
                 }
 
-                request.setAttribute("link", "/aplicacaoMVC/admin/CadastraVendaController?acao=Listar");
+                request.setAttribute("link", "/aplicacaoMVC/admin/VendaController?acao=Listar");
                 rd = request.getRequestDispatcher("/views/comum/showMessage.jsp");
                 rd.forward(request, response);
 

@@ -1,6 +1,4 @@
 package entidade;
-import java.util.Date;
-
 
 public class Venda {
     private int id;

@@ -19,8 +19,37 @@
             <jsp:include page="../../comum/menu.jsp" />
             <div class="mt-5">
 
-                <h1>Relatório Vendas por Produto</h1>
-                
+                <h2>Relatório Vendas por Dia</h2>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Dia da Venda</th>
+                                <th scope="col">Quantidade Vendas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                ArrayList<RelatorioVendasDia> lista_produtos_dia = (ArrayList<RelatorioVendasDia>) request.getAttribute("listaProdutosDia");
+
+                                for (RelatorioVendasDia produto : lista_produtos_dia) {
+                                    out.println("<tr>");
+                                    out.println("<td>" + produto.getData_venda() + "</td>");
+                                    out.println("<td>" + produto.getCount_produto() + "</td>");
+                            %>
+                        <td>
+
+                            <%    out.println("</tr>");
+                                }
+                            %>
+
+                            </tbody>
+                    </table>
+                </div>
+
+                <h2>Relatório Vendas por Produto</h2>
+
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -35,7 +64,7 @@
                                 ArrayList<RelatorioVendasProduto> lista_produtos = (ArrayList<RelatorioVendasProduto>) request.getAttribute("listaProdutos");
 
                                 for (RelatorioVendasProduto produto : lista_produtos) {
-                                    out.println("<tr>");                                    
+                                    out.println("<tr>");
                                     out.println("<td>" + produto.getId() + "</td>");
                                     out.println("<td>" + produto.getNome_produto() + "</td>");
                                     out.println("<td>" + produto.getContProduto() + "</td>");
@@ -43,15 +72,17 @@
                             %>
                         <td>
 
-                        <%    out.println("</tr>");
-                            }
-                        %>
+                            <%    out.println("</tr>");
+                                }
+                            %>
 
-                        </tbody>
+                            </tbody>
                     </table>
                 </div>
             </div>
         </div>
+
+
 
         <script src="http://localhost:8080/aplicacaoMVC/views/bootstrap/bootstrap.bundle.min.js"></script>
 

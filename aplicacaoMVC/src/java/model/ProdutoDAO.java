@@ -206,11 +206,7 @@ public class ProdutoDAO implements Dao<Produto> {
         ArrayList<RelatorioVendasDia> meusProdutos = new ArrayList();
         Conexao conexao = new Conexao();
         try {
-            String selectSQL = "select \n"
-                    + "	data_venda,\n"
-                    + "    count(*) as count_produto\n"
-                    + "from vendas v\n"
-                    + "group by data_venda";
+            String selectSQL = "SELECT data_venda, count(*) as count_produto FROM vendas v GROUP BY data_venda";
 
             PreparedStatement preparedStatement;
             preparedStatement = conexao.getConexao().prepareStatement(selectSQL);

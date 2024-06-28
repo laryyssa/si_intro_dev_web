@@ -28,9 +28,9 @@ public class RelatorioController extends HttpServlet {
         request.setAttribute("listaProdutos", listaProdutos);
         
 
-//        ArrayList<RelatorioVendasDia> listaProdutosDia = new ArrayList<>();
-//        listaProdutosDia = produtoDAO.getRelatorioVendasPorDia();
-//        request.setAttribute("listaProdutosDia", listaProdutosDia);
+        ArrayList<RelatorioVendasDia> listaProdutosDia = new ArrayList<>();
+        listaProdutosDia = produtoDAO.getRelatorioVendasPorDia();
+        request.setAttribute("listaProdutosDia", listaProdutosDia);
         
         
         rd = request.getRequestDispatcher("/views/admin/administrador/relatorio_vendas.jsp");

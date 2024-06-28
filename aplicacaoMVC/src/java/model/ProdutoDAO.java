@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import entidade.Produto;
+import entidade.RelatorioVendasProduto;
+import entidade.RelatorioVendasDia;
 
 public class ProdutoDAO implements Dao<Produto> {
 
@@ -161,6 +163,65 @@ public class ProdutoDAO implements Dao<Produto> {
                             resultado.getInt("id_categoria")
                     );
                     meusProdutos.add(produto);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Query de select (GetAll - produtos) incorreta");
+        } finally {
+            conexao.closeConexao();
+        }
+        return meusProdutos;
+    }
+
+    public ArrayList<RelatorioVendasProduto> getRelatorioVendasPorProduto() {
+        ArrayList<RelatorioVendasProduto> meusProdutos = new ArrayList<>();
+        Conexao conexao = new Conexao();
+        try {
+            String selectSQL = "SELECT id_produto, nome_produto, COUNT(*) AS count_produto FROM vendas v INNER JOIN produtos p ON p.id = v.id_produto GROUP BY id_produto";
+            
+            PreparedStatement preparedStatement;
+            preparedStatement = conexao.getConexao().prepareStatement(selectSQL);
+            ResultSet resultado = preparedStatement.executeQuery();
+
+            if (resultado != null) {
+                while (resultado.next()) {
+                    RelatorioVendasProduto relatorio_produto = new RelatorioVendasProduto(
+                            resultado.getInt("id_produto"),
+                            resultado.getString("nome_produto"),
+                            resultado.getInt("count_produto")
+                    );
+                    meusProdutos.add(relatorio_produto);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao executar a consulta SQL: " + e.getMessage());
+        } finally {
+            conexao.closeConexao();
+        }
+        return meusProdutos;
+    }
+
+    public ArrayList<RelatorioVendasDia> getRelatorioVendasPorDia() {
+
+        ArrayList<RelatorioVendasDia> meusProdutos = new ArrayList();
+        Conexao conexao = new Conexao();
+        try {
+            String selectSQL = "select \n"
+                    + "	data_venda,\n"
+                    + "    count(*) as count_produto\n"
+                    + "from vendas v\n"
+                    + "group by data_venda";
+
+            PreparedStatement preparedStatement;
+            preparedStatement = conexao.getConexao().prepareStatement(selectSQL);
+            ResultSet resultado = preparedStatement.executeQuery();
+            if (resultado != null) {
+                while (resultado.next()) {
+                    RelatorioVendasDia relatorio_produto = new RelatorioVendasDia(
+                            resultado.getString("data_venda"),
+                            resultado.getInt("count_produto")
+                    );
+                    meusProdutos.add(relatorio_produto);
                 }
             }
         } catch (SQLException e) {

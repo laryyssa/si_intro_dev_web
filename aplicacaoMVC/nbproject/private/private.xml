@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/controller/admin/VendaController.java</file>
-            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/controller/admin/CadastraCompraController.java</file>
-            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/web/views/admin/compra_comprador/form_compras.jsp</file>
-            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/web/views/admin/vendas/form_vendas.jsp</file>
-            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/entidade/Venda.java</file>
-            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/model/VendaDAO.java</file>
-            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/web/views/admin/vendas/lista_vendas.jsp</file>
+            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/web/views/comum/menu.jsp</file>
+            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/controller/admin/RelatorioController.java</file>
+            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/controller/VisualizaProdutosController.java</file>
+            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/web/views/admin/administrador/relatorio_vendas.jsp</file>
+            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/model/ProdutoDAO.java</file>
+            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/src/java/entidade/RelatorioVendasProduto.java</file>
+            <file>file:/C:/Users/laryssa.paiva/Documents/Sistemas%20de%20Informação/Introdução%20a%20Dev%20Web/si_intro_dev_web/aplicacaoMVC/web/views/admin/categoria/listaCategorias.jsp</file>
         </group>
     </open-files>
 </project-private>

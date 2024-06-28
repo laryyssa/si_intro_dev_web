@@ -18,6 +18,7 @@
                             
                             if (papelFuncionario.equals("0")) { %>
                             <a class="nav-link" href="/aplicacaoMVC/admin/AdministradorController?acao=Listar">Administrador</a>
+                            <a class="nav-link" href="/aplicacaoMVC/admin/RelatorioController">Relatório de Produtos</a>
                             <%} else if (papelFuncionario.equals("2")) {%>
                             <a class="nav-link" href="/aplicacaoMVC/admin/CadastraCompraController?acao=Listar">Cadastrar Compra</a>
                             <%} else if (papelFuncionario.equals("1")) {%>
@@ -29,8 +30,7 @@
                             <a class="nav-link" href="/aplicacaoMVC/admin/CategoriaController?acao=Listar">Categorias</a>                            
                             <a class="nav-link" href="/aplicacaoMVC/admin/logOut">Logout</a>
                 <%  } else { %>
-                
-                            <a class="nav-link" href="/aplicacaoMVC/VisualizaProdutosController">Visualizar produtos disponíveis</a>
+                            <a class="nav-link" href="/aplicacaoMVC/VisualizaProdutosController?acao=ListarDisponiveis">Visualizar produtos disponíveis</a>
                             <a class="nav-link" href="/aplicacaoMVC/AutenticaController?acao=Login">Login</a>
                 <%    }
                     }%>
